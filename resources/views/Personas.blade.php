@@ -8,25 +8,50 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div>
-            <div>
-                <table id="tablaPersonas" border="1">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Edad</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-header">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#personasModal">
+                    NUEVA
+                </button>
+                <div class="card-body">
+                    <table id="tablaPersonas" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- [INICIO] MODAL PERSONAS -->
+    <div class="modal fade" id="personasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Informacion de personas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- [FIN] MODAL PERSONAS -->
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/Persona.js') }}"></script>

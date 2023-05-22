@@ -23,8 +23,8 @@ function llenarTabla() {
                 <td>${personas[i].Nombre}</td>
                 <td>${personas[i].edad}</td>
                 <td>
-                    <button type="button" onclick='editar'(${i})>Editar</button>
-                    <button type="button" onclick='eliminar'(${i})>Eliminar</button>
+                    <button type="button" class='btn btn-info' onclick='editar'(${i})>Editar</button>
+                    <button type="button" class='btn btn-danger' onclick='eliminar'(${i})>Eliminar</button>
                 </td>
             </tr>
         `;
