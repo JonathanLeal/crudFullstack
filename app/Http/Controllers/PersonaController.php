@@ -50,4 +50,13 @@ class PersonaController extends Controller
         DB::commit();
         return http::respuesta(http::retOK, "Persona agregada con exito");
     }
+
+    public function obtenerId(Request $request){
+        $idPersona = Persona::find($request->id);
+        if (!$idPersona) {
+            return http::respuesta(http::retNotFound, "No se encontro el id");
+        
+        }
+        return http::respuesta(http::retOK, $idPersona);
+    }
 }

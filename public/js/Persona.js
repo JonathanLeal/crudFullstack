@@ -24,7 +24,7 @@ function llenarTabla() {
                 <td>${personas[i].Nombre}</td>
                 <td>${personas[i].edad}</td>
                 <td>
-                    <button type="button" class='btn btn-info' onclick='editar(${i})'>Editar</button>
+                    <button type="button" class='btn btn-info' data-bs-toggle="modal" data-bs-target="#personasModal" onclick='seleccionar(${i})'>Info</button>
                     <button type="button" class='btn btn-danger' onclick='eliminar(${i})'>Eliminar</button>
                 </td>
             </tr>
@@ -63,4 +63,21 @@ function guardar(){
     }).catch(err => {
         console.log(err);
     });
+}
+
+function seleccionar(indice) {
+    axios({
+        method:'GET',
+        url: 'http://127.0.0.1:8000/personas/list/'+indice,
+        responseType: 'json',
+    }).then(response => {
+        console.log(response);
+        document.getElementById('Nombre').value=response.data.datos.Nombre,
+        document.getElementById('edad').value=response.data.datos.edad
+    }).catch(err => {
+        console.log(err);
+    });
+}
+
+function editar(params) {
 }
