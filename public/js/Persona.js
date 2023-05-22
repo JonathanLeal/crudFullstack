@@ -44,3 +44,23 @@ function eliminar(indice) {
         console.log(err);
     });
 }
+
+function guardar(){
+    let persona = {
+        Nombre: document.getElementById('Nombre').value,
+        edad: document.getElementById('edad').value
+    }
+    axios({
+        method:'POST',
+        url: 'http://127.0.0.1:8000/personas/save',
+        responseType: 'json',
+        params: persona
+    }).then(response => {
+        console.log(response);
+        document.getElementById('Nombre').value="";
+        document.getElementById('edad').value="";
+        obtenerPersonas();
+    }).catch(err => {
+        console.log(err);
+    });
+}
