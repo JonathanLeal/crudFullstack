@@ -10,7 +10,7 @@ class PersonaController extends Controller
 {
     public function listarPersonas(){
         $personas = Persona::all();
-        if (!$personas) {
+        if (count($personas) == 0) {
             return Http::respuesta(http::retNotFound, "No hay personas registradas");
         }
         return http::respuesta(http::retOK, $personas);

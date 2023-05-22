@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('personas');
 });
-Route::get('personas/list', [PersonaController::class, 'listarPersona']);
+Route::get('personas/list', [PersonaController::class, 'listarPersonas']);
 Route::get('personas/list/{id}', [PersonaController::class, 'obtenerPersona']);
 Route::post('personas/save', [PersonaController::class, 'guardarPersona']);
 Route::put('personas/update/{id}', [PersonaController::class, 'editarPersona']);
