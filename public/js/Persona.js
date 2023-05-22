@@ -15,6 +15,7 @@ function obtenerPersonas() {
 obtenerPersonas();
 
 function llenarTabla() {
+    document.querySelector('#tablaPersonas tbody').innerHTML = '';
     for (let i = 0; i < personas.length; i++) {
         document.querySelector('#tablaPersonas tbody').innerHTML += 
         `
@@ -23,8 +24,8 @@ function llenarTabla() {
                 <td>${personas[i].Nombre}</td>
                 <td>${personas[i].edad}</td>
                 <td>
-                    <button type="button" class='btn btn-info' onclick='editar'(${i})>Editar</button>
-                    <button type="button" class='btn btn-danger' onclick='eliminar'(${i})>Eliminar</button>
+                    <button type="button" class='btn btn-info' onclick='editar(${i})'>Editar</button>
+                    <button type="button" class='btn btn-danger' onclick='eliminar(${i})'>Eliminar</button>
                 </td>
             </tr>
         `;
@@ -32,5 +33,14 @@ function llenarTabla() {
 }
 
 function eliminar(indice) {
-    console.log('eliminando con el indice: '+index)
+    axios({
+        method:'DELETE',
+        url: 'http://127.0.0.1:8000/personas/delete/'+indice,
+        responseType: 'json'
+    }).then(response => {
+        console.log(response);
+        obtenerPersonas();
+    }).catch(err => {
+        console.log(err);
+    });
 }
