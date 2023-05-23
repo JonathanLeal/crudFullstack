@@ -53,7 +53,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="guardar()">Guardar</button>
+                <button id="btn-guardar" type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="guardar()">Guardar</button>
+                <button id="btn-editar" type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="editar()" style="display: none">Editar</button>
             </div>
         </div>
         </div>
