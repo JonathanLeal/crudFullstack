@@ -24,8 +24,8 @@ function llenarTabla() {
                 <td>${personas[i].Nombre}</td>
                 <td>${personas[i].edad}</td>
                 <td>
-                    <button type="button" class='btn btn-info' data-bs-toggle="modal" data-bs-target="#personasModal" onclick='seleccionar(${i})'>Info</button>
-                    <button type="button" class='btn btn-danger' onclick='eliminar(${i})'>Eliminar</button>
+                    <button type="button" class='btn btn-info' data-bs-toggle="modal" data-bs-target="#personasModal" onclick='seleccionar(${personas[i].id})'>Info</button>
+                    <button type="button" class='btn btn-danger' onclick='eliminar(${personas[i].id})'>Eliminar</button>
                 </td>
             </tr>
         `;
