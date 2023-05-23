@@ -13,18 +13,18 @@ class PersonaController extends Controller
     public function listarPersonas(){
         $personas = Persona::all();
         if (count($personas) == 0) {
-            return Http::respuesta(http::retNotFound, "No hay personas registradas");
+            return response()->json("No hay datos", 401);
         }
-        return http::respuesta(http::retOK, $personas);
+        return response()->json($personas, 200);
     }
 
     public function eliminarPersona(Request $request){
         $idPersona = Persona::find($request->id);
         if (!$idPersona) {
-            return http::respuesta(http::retNotFound, "No se encontro el id");
+            return response()->json("no se encontro a la persona", 401);
         }
         $idPersona->delete();
-        return http::respuesta(http::retOK, "Persona eliminada con exito");
+        return response()->json("Persona eliminada conexito", 200);
     }
 
     public function guardarPersona(Request $request){
@@ -34,7 +34,7 @@ class PersonaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return http::respuesta(http::retError, $validator->errors());
+            return response()->json($validator->errors(), 404);
         }
 
         DB::beginTransaction();
@@ -45,18 +45,18 @@ class PersonaController extends Controller
             $persona->save();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return http::respuesta(http::retError, ['error en cacth' => $th->getMessage()]);
+            return response()->json(["error en el cahct" => $th->getMessage()], 404);
         }
         DB::commit();
-        return http::respuesta(http::retOK, "Persona agregada con exito");
+        return response()->json("Persona agregada con exito", 201);
     }
 
     public function obtenerId(Request $request){
         $idPersona = Persona::find($request->id);
         if (!$idPersona) {
-            return http::respuesta(http::retNotFound, "No se encontro el id");
+            return response()->json("No existe el ID", 401);
         
         }
-        return http::respuesta(http::retOK, $idPersona);
+        return response()->json($idPersona);
     }
 }

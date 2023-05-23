@@ -6,7 +6,7 @@ function obtenerPersonas() {
         responseType: 'json'
     }).then(response => {
         console.log(response);
-        this.personas = response.data.datos
+        this.personas = response.data
         llenarTabla();
     }).catch(err => {
         console.log(err);
@@ -54,7 +54,7 @@ function guardar(){
         method:'POST',
         url: 'http://127.0.0.1:8000/personas/save',
         responseType: 'json',
-        params: persona
+        data: persona
     }).then(response => {
         console.log(response);
         document.getElementById('Nombre').value="";
@@ -72,8 +72,8 @@ function seleccionar(indice) {
         responseType: 'json',
     }).then(response => {
         console.log(response);
-        document.getElementById('Nombre').value=response.data.datos.Nombre,
-        document.getElementById('edad').value=response.data.datos.edad
+        document.getElementById('Nombre').value=response.data.Nombre,
+        document.getElementById('edad').value=response.data.edad
     }).catch(err => {
         console.log(err);
     });
