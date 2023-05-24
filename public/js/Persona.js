@@ -74,8 +74,8 @@ function seleccionar(indice) {
         console.log(response);
         document.getElementById('Nombre').value=response.data.Nombre,
         document.getElementById('edad').value=response.data.edad
-        document.getElementById('btn-guardar').style.display = none;
-        document.getElementById('btn-editar').style.display = block;
+        document.getElementById('btn-guardar').style.display = 'none';
+        document.getElementById('btn-editar').style.display = 'block';
     }).catch(err => {
         console.log(err);
     });
