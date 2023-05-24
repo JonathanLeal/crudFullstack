@@ -1,4 +1,5 @@
 var personas = [];
+var personaSeleccionada;
 function obtenerPersonas() {
     axios({
         method:'GET',
@@ -66,6 +67,7 @@ function guardar(){
 }
 
 function seleccionar(indice) {
+    personaSeleccionada = indice;
     axios({
         method:'GET',
         url: 'http://127.0.0.1:8000/personas/list/'+indice,
